@@ -1,0 +1,379 @@
+
+    <header>
+        <!-- Navbar Large Screen -->
+        <nav class="navba navba-js d-flex justify-content-between align-items-center">
+            <div class="brand-logo">
+                <a href="">
+                    <img src="assets/img/brand-logo.png" alt="" width="150px">
+                </a>
+            </div>
+            <ul class="navba-links">
+                <li><a href="/" class="active" style="color: #ffff;">Home <img src="assets/img/star-icon.png" alt="" width="20px"></a> </li>
+                <li><a href="about">About </a></li>
+                <li><a href="service">Service</a></li>
+                <!-- <li><a href="gallery">Gallery <img src="assets/img/star-icon.png" alt="" width="20px"></a></li> -->
+                <li><a href="contactus">Contact Us</a></li>
+            </ul>
+            <div class="navba-btn">
+                <div class="button-container">
+                    <a href="about" class="expand-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <span class="circle"></span>
+                        <span class="button-text">Book Now <span class="iconify ms-2" data-icon="guidance:left-arrow"></span></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Navbar Small Scren -->
+    <nav class="sm-navba navba-js d-flex justify-content-between align-items-center"><br>
+        <div class="brand-logo">
+            <a href="">
+                
+               <img src="assets/img/brand-logo.png" alt="">
+            </a>
+        </div>
+        <div class="navba-btn">
+            <div class="button-container">
+                <a href="about" class="expand-button" onclick="navba_close()" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="navba_close()">
+                    <span class="circle"></span>
+                    <span class="button-text">Book Now <span class="iconify ms-2" data-icon="guidance:left-arrow"></span></span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="open-navba">
+            <div class="sm-hamburger" onclick="navba_open()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div> 
+        <div class="sm-navbalinks-wrapper" style="z-index:3;width:300px;" id="mySidebar">
+            <div class="close-navba">
+                <a href="#" onclick="navba_close()" class="" title="close menu">
+                <i class="fa fa-remove"></i>
+                </a>
+            </div>
+            <div class="sm-navbalinks">
+                <ul class="navba-links">
+                    <li><a href="/" class="active" onclick="navba_close()">Home</a></li>
+                    <li><a href="about" onclick="navba_close()">About</a></li>
+                    <li><a href="service" onclick="navba_close()">Service</a></li>
+                    <!-- <li><a href="gallery">Gallery</a></li> -->
+                    <li><a href="contactus" onclick="navba_close()">Contact Us</a></li>
+                </ul>
+            </div>
+            
+        </div>
+         <!-- Overlay effect when opening sidebar on small screens -->
+        <div class="navba-overlay" onclick="navba_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    </nav>         
+    </header>
+
+
+    <style>
+        :root { 
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+   
+    --accent-color: #0E2A4E; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+   
+  }
+  
+  
+  /*--------------------------------------------------------------
+  # Contact Section
+  --------------------------------------------------------------*/
+  .contact .info-wrap {
+    background-color: var(--surface-color);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    /* border-top: 3px solid var(--accent-color); */
+    border-bottom: 3px solid var(--accent-color);
+    padding: 30px;
+    height: 100%;
+  }
+  
+  .section-title h2 {
+    text-align: center;
+    margin-bottom: 2rem
+  }
+  
+  
+  
+  
+  @media (max-width: 575px) {
+    .contact .info-wrap {
+      padding: 20px;
+    }
+  }
+  
+  .contact .info-item {
+    margin-bottom: 40px;
+  }
+  
+  .contact .info-item i {
+    font-size: 20px;
+    color: var(--accent-color);
+    background:  #051C2F;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    margin-right: 15px;
+  }
+  
+  .contact .info-item h3 {
+    padding: 0;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .contact .info-item p {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  
+  .contact .info-item:hover i {
+    background: var(--accent-color);
+    color: WHITE;
+  }
+  
+  .contact .my-email-form {
+    background-color: var(--surface-color);
+    height: 100%;
+    padding: 30px;
+    border-top: 3px solid var(--accent-color);
+    /* border-bottom: 3px solid var(--accent-color); */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 575px) {
+    .contact .my-email-form {
+      padding: 20px;
+    }
+  }
+  
+  .contact .my-email-form input[type=text],
+  .contact .my-email-form input[type=email],
+  .contact .my-email-form textarea {
+    font-size: 14px;
+    padding: 10px 15px;
+    box-shadow: none;
+    border-radius: 0;
+    color: var(--default-color);
+    background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+    border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  }
+  
+  .contact .my-email-form input[type=text]:focus,
+  .contact .my-email-form input[type=email]:focus,
+  .contact .my-email-form textarea:focus, .contact .my-email-form select:focus {
+    border-color: var(--accent-color);
+  }
+  
+  .contact .my-email-form input[type=text]::placeholder,
+  .contact .my-email-form input[type=email]::placeholder,
+  .contact .my-email-form textarea::placeholder {
+    color: color-mix(in srgb, var(--default-color), transparent 70%);
+  }
+  
+  .contact .my-email-form button[type=submit] {
+    color: #fff;
+    max-height: 58px;
+    font-weight:400;
+    font-size: 20px;
+    background: var(--accent-color);
+    border: 0;
+    padding: 10px 30px;
+    transition: 0.4s;
+    border-radius: 10px;
+  }
+  
+  .contact .my-email-form button[type=submit]:hover {
+    /* background: color-mix(in srgb, var(--accent-color), transparent 25%); */
+  }
+  
+    </style>
+   
+
+   <!-- MODAL FOR CONTACT US SECTION -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div id="modalAlertContainer">
+                    <!-- Alerts will be dynamically injected here -->cdd
+                </div>
+
+                <!-- Contact Section -->
+                <section id="contact" class="contact section" style="overflow-x: hidden;">
+                    <div class="container section-title" data-aos="fade-up">
+                        <h2>Booking Your Flight</h2>
+                        <p class="para text-center" style="width: 90%; margin: auto"></p><br>
+                    </div><!-- End Section Title -->
+
+                    <div class="container" data-aos="fade-up" data-aos-delay="100">
+                        <style>
+                            .contact-row {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                        </style>
+                        <div class="contact-row">
+                            <div class="contact-1 order-2">
+                                <div class="info-wrap"></div>
+                            </div>
+
+                            <div class="contact-2">
+                                <div class="my-email-form" data-aos="fade-up" data-aos-delay="200">
+                                    <form action="" method="post" class="row gy-4" id="inquiry-form">
+                                        <div class="col-md-6">
+                                            <label for="first-name" class="pb-2">First Name</label>
+                                            <input type="text" name="firstName" id="first-name" class="form-control" required="">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="last-name" class="pb-2">Last Name</label>
+                                            <input type="text" name="lastName" id="last-name" class="form-control" required="">
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="email-field" class="pb-2">Email</label>
+                                            <input type="email" class="form-control" name="email" id="email-field" required="">
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="phone-field" class="pb-2">Phone</label>
+                                            <input type="number" class="form-control" name="phone" id="phone-field" required="">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="flying-from" class="pb-2">Flying From</label>
+                                            <input type="text" name="flyingFrom" id="flying-from" class="form-control" required="">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="flying-to" class="pb-2">Flying To</label>
+                                            <input type="text" name="flyingTo" id="flying-to" class="form-control" required="">
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="departure-date" class="pb-2">Departure Date</label>
+                                            <input type="date" class="form-control" name="departureDate" id="departure-date" required="">
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="return-date" class="pb-2">Return Date</label>
+                                            <input type="date" class="form-control" name="returnDate" id="return-date" required="">
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label for="class-select" class="pb-2">Class</label>
+                                            <select class="form-select" name="flightClass" id="class-select" required>
+                                                <option value="economy">Economy Class</option>
+                                                <option value="business">Business Class</option>
+                                                <option value="first">First Class</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="num-adults" class="pb-2">Number of Adults</label>
+                                            <input type="number" name="numAdults" id="num-adults" class="form-control" required="">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="num-children" class="pb-2">Number of Children</label>
+                                            <input type="number" name="numChildren" id="num-children" class="form-control" required="">
+                                        </div>
+
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn-class"><i class="fa-solid fa-spin"></i> Send <span class="iconify ms-2" data-icon="guidance:left-arrow" style="font-size: 2rem;"></span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- End Contact Form -->
+                        </div>
+                    </div>
+                </section><!-- End Contact Section -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Add this script in your header.ejs -->
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('inquiry-form');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent default form submission
+
+        // Collect form data
+        const formData = new FormData(form);
+
+        // Convert FormData to a plain object
+        const data = {};
+        formData.forEach((value, key) => {
+            data[key] = value;
+        });
+
+        console.log('req body', data)
+
+        // Send form data via Fetch API
+        fetch('/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // We're sending JSON data
+            },
+            body: JSON.stringify(data), // Send data as JSON
+        })
+        .then(response => response.json()) // Parse JSON response
+        .then(data => {
+            if (data.success) {
+                showAlert('Email sent successfully!', 'success');
+                form.reset(); // Reset the form
+                const modal = document.getElementById('staticBackdrop');
+                const bootstrapModal = new bootstrap.Modal(modal);
+                bootstrapModal.hide(); // Hide the modal after form submission
+            } else {
+                showAlert('Error: ' + data.message, 'danger');
+            }
+        })
+        .catch(error => {
+            showAlert('Error sending email: ' + error, 'danger');
+        });
+    });
+
+    // Function to display Bootstrap alerts
+    function showAlert(message, type) {
+        // Create a new alert element
+        const alert = document.createElement('div');
+        alert.classList.add('alert', `alert-${type}`, 'alert-dismissible', 'fade', 'show');
+        alert.role = 'alert';
+        alert.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+
+        // Append the alert to the modalAlertContainer
+        document.getElementById('modalAlertContainer').appendChild(alert);
+
+        // Automatically hide the alert after 5 seconds
+        setTimeout(() => {
+            alert.classList.remove('show');
+        }, 5000);
+    }
+});
+
+</script>

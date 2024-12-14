@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    
+
+:root {
+    --green: #0E2A4E;
+    --blue: #178CEA;
+    --bg-color: #F5F6F7;
+    --dark-blue: #051C2F;
+
+}
+
+body {
+   overflow-x: hidden;
+}
+
+
+a {
+    text-decoration: none;
+    
+}
+
+li {
+    list-style-type: none;
+}
+
+section{
+    padding-top: 3rem;
+}
+
+/* Button container styling */
+.button-container {
+    /* text-align: center; */
+}
+
+/* Styling for the button */
+.expand-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    color: #000; /* Text color */
+     /* Initial padding */
+    border-radius: 50px; /* Button has a rounded shape */
+    overflow: hidden; /* Hide anything outside the button */
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Button text styling */
+.button-text {
+    z-index: 1;
+    padding-left: 15px; /* Add space to the left of the text for the circle */
+    color: var(--green);
+}
+
+/* Circle inside the button */
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px; /* Initial circle size */
+    height: 100%; /* Same height as the button */
+    border-radius: 50px; /* Circle is rounded */
+    background-color: var(--secondary-color) !important;
+    opacity: 0.7;
+    transition: transform 0.3s ease, width 0.3s ease;
+    transform-origin: left center; /* Ensures expansion starts from the left */
+}
+
+/* Hover effect - expand the circle */
+.expand-button:hover .circle {
+    transform: scaleX(1); /* Expand the circle */
+    width: 100%; /* Circle will fill the entire button */
+}
+
+.expand-button:hover .button-text {
+    color: #fff;
+}
+
+
+
+
+
+/*NAVBAR SECTION */
+.header-container{
+   height: 90vh;
+   width: 100%;
+   background-image: url(../img/hero-img5.jpg);
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-attachment: scroll;
+   position: relative;
+}
+
+.brand-logo{
+    width: 20%;
+}
+.sm-navba{
+    display: none !important;
+}
+
+.sm-navba.navba-js{
+    padding: 1.5rem 1rem;
+    
+}
+
+.navba{
+    padding: .5rem 4rem;
+    background: rgba(152, 151, 151, 0.5);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+.navba.scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--green); /* Desired background color */
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.navba .navba-links{
+    align-self: center;
+    
+    /* width: 70%; */
+}
+.navba .btn-class{
+    max-height: 58px;
+    font-size: 18px;
+    font-weight: 400;
+   
+}
+.navba ul li{
+    display: inline-block;
+    padding: 0 .7rem;
+}
+.navba ul li a{
+    text-decoration: none;
+    color: #fff;
+    transition: .7s;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.navba ul li a:hover{
+    color: #EBC6A4;
+}
+.navba ul li a.active{
+    color: var(--green);
+}
+
+header .navba-btn a{
+    background: #fff;
+    padding: .8rem 1rem;
+    border-radius: 30px;
+    color: #000;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+header .navba-btn .iconify{
+    font-size: 1.8rem;
+    margin-left: .5rem;
+    font-weight: 500;
+}
+@media (max-width: 991px) {
+    
+    .navba{
+        display: none !important;
+    }
+
+   .sm-navba{
+    background: #0E2A4E;
+    display: flex !important;
+    padding: .5rem 3rem .5rem 0;
+    position: fixed;
+    top: -.5rem;
+    width: 100%;
+    z-index: 100;
+   }
+
+   .sm-navba .getquote-btn{
+    max-height: 58px;
+    font-weight: 400;
+    padding: 20px 10px;
+   }
+
+   .sm-navba .brand-logo{
+    width: 40%;
+   }
+
+  .sm-navbalinks-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70% !important;
+    height: 100%;
+    background-color: #0E2A4E;
+    overflow-x: hidden;
+    transition: 0.5s;
+    z-index: 1;
+    display: none;
+    animation: animateleft 0.4s;
+  }
+
+.sm-navba .close-navba{
+    position: relative;
+}
+.sm-navba .close-navba a{
+    color: #dfeaf5;
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    font-size: 3rem;
+}
+.sm-navba .open-navba .sm-hamburger .line{
+    background-color: #fff;
+    height: 1.5px;
+    width: 30px;
+    margin: .5rem 0;
+}
+.sm-navba .navba-links{
+    margin-top: 6rem;
+    display: grid;
+    place-items: center;
+    padding: 0;
+}
+
+.sm-navba .navba-links li a {
+    width: 100% !important;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+}
+.sm-navba .navba-links li {
+    font-size: 18px;
+    padding: 1rem;
+}
+
+.sm-navba .navba-links li:hover{
+    text-align: center;
+    background:#BD2433;
+    width: 100%;
+}
+
+header .navba-btn{
+    width: fit-content;
+    margin: auto;
+}
+
+  @keyframes animateleft {
+    from {
+      left: -300px;
+    }
+    to {
+      left: 0;
+    }
+  }
+
+  .sm-hamburger {
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff !important;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 36px; 
+  }
+
+  /* Overlay */
+.navba-overlay{
+    position:fixed;
+    display:none;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(0,0,0,0.5);
+    z-index:2
+}         
+}
+
+@media(max-width: 768px){
+    .sm-navba .brand-logo{
+        width: 25%;
+       }
+}
+
+
+
+/* HERO SECTION */
+.hero-slider{
+    width: 100%;
+    height: fit-content;
+    color: #fff;
+    padding: 3rem 9rem 5rem;
+}
+.bg-cover{
+    background-position: center !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+.hero-slider1{
+    background-image: url(../img/hero-img.png);
+}
+.hero-slider2{
+    background-image: url(../img/why-usbg.png);
+}
+.hero-slider3{
+    background-image: url(../img/video-bg.png);
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#carousel-thumb .carousel-item:before {
+    content: "";
+    position: absolute;
+    z-index: 999;
+    background: #0000003d;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+#carousel-thumb .carousel-indicators li {
+    width: 100px;
+}
+
+#carousel-thumb .carousel-indicators {
+    bottom: 40px;
+}
+
+#carousel-thumb .carousel-indicators li img {
+    border: 2px solid #e2e2e2;
+}
+.carousel-control-prev span{
+    border: 2px soild #fff;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 50px;  
+    height: 50px; 
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 50%; 
+    transform: translateY(-90%);
+    color: #fff; 
+}
+.hero-slider .top-content{
+    margin:2rem 0 4rem;
+}
+.hero-slider h1{
+    font-size: 60px;
+}
+.hero-slider .p-text{
+    margin: 2rem 0 5rem;
+}
+.hero-slider .btn-class{
+    max-height: 58px;
+}
+
+@media (max-width: 991px) {
+    .hero-slider{
+        padding: 8rem 4rem 5rem;
+    }
+    .hero-slider h1 {
+        font-size: calc(2.5rem + 1vw); 
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container{
+        height: 100vh;
+    }
+    .hero-slider{
+        padding: 8rem 2rem 5rem;
+    }
+
+    .hero-slider .top-content img:first-child{
+        width: 250px;
+    }
+
+    .hero-slider .top-content img:nth-child(2){
+        width: 200px;
+    }
+
+    .hero-slider h1{
+        font-size: 30px;
+    }
+    
+}
+
+@media (max-width: 530px) {
+    .hero-slider{
+        padding: 5rem 1rem 5rem;
+    }
+    .hero-slider .top-content{
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .hero-slider .top-content img:first-child{
+        width: 300px;
+    }
+
+    .hero-slider .top-content img:nth-child(2){
+        width: 300px;
+    }
+    .carousel-control-prev, .carousel-control-next {
+        /* top: 45%;  */
+        top: 19rem;
+    }
+}

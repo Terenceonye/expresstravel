@@ -1,0 +1,233 @@
+/*********************************************************
+Footer Section
+**********************************************************/
+:root {
+    --dark-primary:#04122C;
+    --primary-color: #0E2A4E;
+    --secondary-color: #BD2433;
+    --liteprimary: #176BC5;
+    --bg-color: #F5F6F7;
+    --bg-lite: #E6ECF2;
+    --dark-blue: #051C2F;
+    --text-grey: #6A6969;
+
+}
+
+
+.footer-section{
+    background-color: var(--dark-primary);
+    color: #fff;
+    margin-top: 10rem;
+}
+
+.footer-section .brand-logo img{
+    max-width: none;
+    width: 150px;
+}
+
+.footer-section .row-wrapper{
+    padding: 5.5rem 3rem 3rem;
+}
+
+.footer-section .contact-row{
+    background: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2rem;
+    position: relative;
+}
+
+.footer-section .contact-row img{
+    position: absolute;
+    height: 300px;
+    bottom: 0;
+    left: -13rem;
+}
+
+.footer-section .contact-row .texts{
+    
+    align-self: flex-end !important;
+}
+.footer-section .contact-row p{
+    max-width: 700px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+
+
+/* Button container styling */
+.button-container {
+    text-align: center;
+
+}
+
+/* Styling for the button */
+.expand-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    color: #000; /* Text color */
+    padding: 16px 20px; /* Initial padding */
+    border-radius: 50px; /* Button has a rounded shape */
+    overflow: hidden; /* Hide anything outside the button */
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Button text styling */
+.button-text {
+    z-index: 1;
+    padding-left: 15px; /* Add space to the left of the text for the circle */
+    color: var(--primary-color);
+}
+
+/* Circle inside the button */
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px; /* Initial circle size */
+    height: 100%; /* Same height as the button */
+    border-radius: 50px; /* Circle is rounded */
+    background-color: var(--primary-color);
+    transition: transform 0.3s ease, width 0.3s ease;
+    transform-origin: left center; /* Ensures expansion starts from the left */
+}
+
+/* Hover effect - expand the circle */
+.expand-button:hover .circle {
+    transform: scaleX(1); /* Expand the circle */
+    width: 100%; /* Circle will fill the entire button */
+}
+
+.expand-button:hover .button-text {
+    color: #fff;
+}
+
+
+.footer-section .expand-button {
+    background:  #fff;
+}
+
+.footer-section .expand-button .button-text{
+    font-size: 1.2rem;
+    font-weight: 600 !important;
+}
+.footer-section .circle {
+    background-color: var(--secondary-color);
+}
+
+.footer-section p{
+    font-size: 15px;
+}
+.footer-section a{
+    font-size: 16px !important;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-section h4{
+    font-size: 1.2rem;
+}
+
+.footer-section .quick-link,
+.footer-section .reach-us{
+    padding: 0 2rem;
+}
+
+.footer-section .about-us .social-links a{
+   padding: .4rem .5rem;
+   background-color: #334f79;
+   border-radius: 50%;
+}
+
+.footer-section .copyright{
+    border-top: 1px solid #6A6969 ;
+    padding: 2rem 0 1rem;
+}
+
+.footer-section .search-box input{
+    width: 60%;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding-left: 1rem;
+    padding-right: .2rem;
+}
+
+.footer-section .search-box{
+    min-width: 250px;
+    background-color: #fff;
+    padding: .5rem;
+    border-radius: 10px;
+    display: flex;
+}
+
+.footer-section .search-box button{
+    border: none;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    padding: .5rem 2rem;
+    font-size: 14px;
+}
+
+.footer-section .search-box button:hover{
+    background: var(--primary-color);
+}
+
+@media (max-width: 991px) {
+    .footer-section .row .col-md-6{
+        margin-bottom: 2rem;
+        padding: 0 !important;
+    }
+    .footer-section .contact-row img{
+        left: -16rem;
+    }
+    .footer-section .contact-row{
+        padding: 1rem .5rem !important;
+    }
+    .footer-section .contact-row p{
+        max-width: 500px;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    .footer-section .contact-row p{
+        max-width: 300px;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    .footer-section .contact-row img{
+        position: absolute;
+        height: 220px;
+        bottom: 0;
+        left: -13rem;
+    }
+
+    .footer-section .search-box{
+        max-width: 350px;
+        margin-top: 2rem;
+    }
+    .footer-section .copyright{
+        display: block !important;
+        text-align: center;
+    }
+
+    .footer-section .expand-button .button-text{
+        font-size: 1.1rem;
+    }
+
+    .expand-button {
+        padding: 1rem 1rem; 
+    }
+    .button-text .iconify{
+        font-size: 1.5rem !important;
+    }
+}

@@ -1,0 +1,916 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    
+
+:root {
+    --green: #09574A;
+    --blue: #178CEA;
+    --bg-color: #F6F0EA;
+    --bg-color-lite: #E6ECF2;
+    --dark-blue: #051C2F;
+    --text-grey: #6A6969;
+
+    --primary: #0E2A4E;
+    --secondary: #BD2433;
+    --light: #ffffff;
+    --dark: #000000;
+    --body-color: #f8f1ea;
+    --accent-color: #f7eadd;
+    --primary-color: #0E2A4E;
+    --liteprimary: #176BC5;
+
+}
+
+body {
+   overflow-x: hidden;
+}
+
+
+a {
+    text-decoration: none; 
+}
+a:hover {
+    text-decoration: none; 
+}
+
+li {
+    list-style-type: none;
+}
+
+/* GENERAL FOR TITLES */
+.title h1{
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.title p{
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-grey);
+    margin-bottom: 3rem;
+}
+
+main{
+    overflow-x: hidden !important;
+}
+
+
+/* FOR BUTTONS */
+
+.actionBtn {
+    font-size: 14px;
+    text-wrap: nowrap;
+    padding: 20px 40px;
+    color: var(--dark);
+    display: inline;
+    background-color: var(--secondary);
+    border-radius: 7rem;
+    cursor: pointer;
+    transition: all ease .3s;
+
+    margin: 1rem 0
+}
+
+.actionBtn:hover {
+    background-color: var(--primary);
+    color: var(--light);
+    transition: all ease .3s;
+
+}
+
+.actionBtn i {
+    margin-left: 10px;
+}
+
+
+/* GENERAL HERO STYLE */
+.other-hero {
+    min-height: 70vh; /* Dynamic height relative to the viewport */
+    background-size: cover; /* Ensure the image fully covers the hero section */
+    background-repeat: no-repeat;
+    background-position: center; /* Center the image */
+    width: 100%; /* Full width of the parent container */
+    display: flex; /* Use flexbox for aligning content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    position: relative; /* For additional overlays if needed */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.other-hero .hero-content {
+    text-align: center;
+    color: white; /* Contrasting color for readability */
+    padding: 1rem; /* Space around the content */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    line-height: 1.5; /* Improve readability */
+    max-width: 90%; /* Limit content width for better layout on smaller screens */
+    
+}
+
+.other-hero .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800 !important;
+    font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+ h1{
+    font-size: 30px !important;
+}
+}
+
+.bg-cover{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.image-leaf{
+    margin-right: .5rem;
+}
+
+.image-flips{
+    transform: scaleX(-1); 
+    margin-left: .5rem;
+}
+
+.navba{
+    padding: .5rem 4rem;
+    background: var(--primary-color);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+
+/* Scroll To Top Btn */
+#scrollBtn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    z-index: 99;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    background-color: #25D366;
+    color: white;
+    cursor: pointer;
+    padding: .8rem 1rem;
+    border-radius: 50%;
+ }
+    #scrollBtn:hover{
+      opacity: 0.7;
+      transition: 1s;
+ }
+
+/*****************************************
+  All Styles for gallery.html
+*******************************************/
+.gallery-container {
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.gallery-container .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px !important;
+}
+
+.gallery-container .tab-btn {
+    color: var(--primary);
+    border: none;
+    padding: 10px 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 30px;
+}
+
+.gallery-container .tab-btn.active, .tab-btn:hover {
+    background: var(--primary);
+    color: #ffffff;
+    
+}
+
+/* Gallery Grid */
+.gallery-container .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.gallery-container .gallery-item {
+    position: relative;
+    overflow: hidden; 
+    border-radius: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    aspect-ratio: 1/1.17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.gallery-container .gallery-item .circle-container{
+    position: absolute;
+}
+
+.gallery-container .gallery-item .cross-cirle{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background: #fff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(160%);
+    opacity: 0;
+    transition: transform 0.4s ease-in-out;
+}
+
+.gallery-container .gallery-item .cross-cirle i{
+    color: #09574A;
+    font-size: 1.6rem;
+}
+
+.gallery-container .gallery-item img {
+    width: 100%; /* Ensures the image takes up the full width of the container */
+    height: 100%; /* Ensures the image takes up the full height of the container */
+    object-fit: cover; /* Crops the image to fill the container without distortion */
+    transition: .7s; /* Adds a smooth zoom effect on hover */
+}
+
+.gallery-container .gallery-item:hover .cross-cirle{
+        transform: translateY(0); 
+        opacity: 1;  
+}
+
+.gallery-container .gallery-item:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.7s;
+    opacity: 1;
+}
+
+/* CSS Animation for Filter */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.gallery-container .gallery-item {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (max-width: 768px){
+    .gallery-container {
+        padding: 0;
+    }
+
+    .gallery-container .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-container .tab-btn {
+        padding: 10px 20px;
+        font-size: .9rem;
+}
+}
+
+@media (max-width: 500px){
+    .gallery-container .gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .gallery-container .tab-btn {
+        padding: 8px 15px;
+        font-size: .8rem;
+        text-wrap: nowrap;
+}
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+}
+
+.lightbox-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    font-size: 30px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.lightbox-prev {
+    left: -50px;
+}
+
+.lightbox-next {
+    right: -50px;
+}
+
+/* Animations */
+.lightbox.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
+
+@media (max-width: 640px)  {
+    .lightbox-close {
+        position: absolute;
+        top: -70px;
+        right: 0;
+        font-size: 30px;
+        color: white;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+}
+
+}
+
+
+
+/*****************************************
+  All Styles for service.html
+*******************************************/
+/* OUR SERVICE SECTION */
+.service-section .service-wrapper2{
+    margin-top: 2rem;
+}
+
+.service-section .service .service-img-div{
+    overflow: hidden;
+    height: 100%; 
+    width: 100%; 
+    background: transparent;
+    transition: background 0.6s ease !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.service-section .service .service-img{
+    transition: transform 0.6s ease !important; 
+}
+
+
+.service-section .service{    
+    border-bottom: 4px solid var(--primary-color);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    
+}
+
+.service-section .service:hover .service-img{
+    transform: scale(1.1);
+    transition: .7s;
+    
+}
+
+.service-section .service:hover .service-img-div{
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.service-section .service h4{
+    margin: 1rem 0;
+    padding: 0 1rem;
+}
+
+.service-section .service p{
+    color: var(--text-grey);
+    text-align: ;
+    padding: 0 1rem;
+}
+
+.service-section .service p {
+    display: -webkit-box;           
+    -webkit-box-orient: vertical; 
+    overflow: hidden;                    
+    line-height: 1.5;              
+    max-height: calc(1.5em * 3);   
+}
+
+
+.service-section .service p a{
+    color: var(--secondary-color);
+}
+
+@media(max-width: 640px){
+    .service-section .service {
+        margin: 0 1.5rem;
+        border-radius: 10px;
+    }
+
+    .service-section .service .service-img-div{
+        max-height: 150px;
+        border-radius: 10px;
+    }
+}
+
+
+
+
+
+.testimonial-section{
+    padding-bottom: 0;
+    margin-top: 5rem;
+    margin-bottom: 4rem
+}
+
+.slides {
+}
+
+.slides img{
+    max-height: 100px;
+}
+
+
+
+
+
+
+/*****************************************
+  All Styles for about.html
+*******************************************/
+.about-section .top-content{
+     padding-top: 1rem;
+}
+
+.about-section .top-content h1{
+    color: var(--primary-color);
+}
+.about-section .top-content h5{
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: var(--secondary);
+}
+
+.about-section .top-content p{
+    font-size: 1.1rem;
+    color: var(--text-grey);
+}
+
+.about-section .lower-content{
+    max-width: 1200px;
+    margin: 3rem auto 2rem;
+    flex-wrap: wrap !important;
+
+}
+.about-section .lower-content p{
+    max-width: 300px;
+}
+
+.about-section .icon{
+    width: 70px;
+    min-width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--liteprimary);
+    margin-right: 1rem;
+    transition: transform 0.6s ease; 
+}
+
+.about-section .icon .iconify{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.about-section .icon:hover{
+    transform: rotateY(180deg);
+}
+
+@media(max-width: 991px){
+    .about-section .about-text{
+        text-align: center;
+    }
+    .about-section .lower-content{
+        justify-content: center !important;
+    }
+
+}
+
+
+
+/* HOW IT WORKS SECTION */
+.work-section{
+    background: #E6ECF2 ;
+    color: var(--primary);
+}
+
+.work-section .content-icon {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2rem;
+}
+
+.work-section .item .icon{
+    height: 100px;
+    width: 100px;
+    max-width: 110px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: 2rem 0 1.5rem;
+}
+
+.work-section .item .icon1{
+    background: #9672FF;
+}
+
+.work-section .item .content .icon2{
+    background: #4DDFFD !important;
+}
+
+.work-section .item .content .icon3{
+    background: #F2B8EC;
+}
+
+.work-section .item .icon4{
+    background: #9672FF;
+
+}
+
+.work-section .item .icon .iconify{
+    font-size: 3rem;
+}
+
+.work-section .item .icon-sets .iconify{
+    font-size: 3rem;
+}
+
+.work-section .item .icon-sets .dash-text{
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.5rem;
+    text-wrap: nowrap;
+}
+
+.work-section .item .icon-sets{
+    padding-top: 2rem;
+}
+
+.work-section .item{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-top: 2rem;
+}
+
+.work-section .item p{
+    max-width: 300px;
+}
+
+.work-section .contact-btn{
+    width: fit-content;
+    margin:5rem  auto 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+  
+@media (max-width: 768px){
+    .work-section .item{
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 2rem;
+    }
+    
+.work-section .item .content{
+    display: flex;
+}
+.work-section .item .content .d-flex{
+    flex-direction: column !important;
+    display: none !important;
+}
+.work-section .item .content .iconify,
+.work-section .item .content .dash-text{
+    display: block;
+}
+
+.work-section .item .content .dash-text{
+   
+}
+
+}
+
+
+
+
+/*****************************************
+  All Styles for contactus.html
+*******************************************/
+.get-answer{
+    padding: 3rem 3rem 0 3rem;
+}
+.get-answer .img{
+    height: 370px;
+    position: relative;
+}
+
+.get-answer .img img{
+    position: absolute;
+    bottom: -2rem;
+    position: relative;
+    z-index: -1 !important;
+}
+
+.get-answer h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    font-weight: 800 !important;
+    font-size: 3rem;
+    margin-top: 10rem;
+}
+
+.get-answer p{
+    color: var(--text-grey);
+    font-size: 1.1rem;
+}
+
+.contact-form-section {
+    background: linear-gradient(rgb(11, 21, 41, 0.6), rgb(11, 21, 41, 0.9)), url(../img/plane4.jpg);
+    padding: 0 2rem;
+    /* padding-bottom: 10rem; */
+    z-index: 2;
+    margin-bottom: 20rem;
+}
+
+.contact-form-section .form-wrapper{
+    max-width: 40rem;
+    min-width: 30rem;
+    padding-top: 5rem;
+    background: #fff;
+    border-top-right-radius: 15%;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 5%;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    transform: translateY(22%);
+    z-index: 5;
+    overflow: hidden;
+}
+.contact-form-section .form-wrapper .forms{
+    padding: 0 5rem;
+}
+.contact-form-section .form-wrapper input,
+.contact-form-section .form-wrapper textarea,
+.contact-form-section .form-wrapper .dropdown-toggle{
+    width: 100%;
+    display: block;
+    background: var(--bg-color-lite);
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.contact-form-section .form-wrapper textarea{
+    min-height: 7rem;
+}
+
+.contact-form-section .form-wrapper button{
+    width: fit-content;
+    background: var(--primary);
+    border: none;
+    border-radius: 30px;
+    padding: 1rem 1.5rem;
+    color: var(--text-grey);
+    cursor: pointer;
+    margin-top: .7rem;
+    text-align: left;
+}
+
+.contact-form-section .submit-btn{
+    background: var(--primary);
+    padding: 2rem ;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.contact-form-section .submit-btn button{
+    background: #fff;
+    color: var(--primary);
+    margin-left: 3rem;
+    font-weight: 600;
+}
+
+.contact-form-section .submit-btn a{
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.contact-form-section .submit-btn .iconify{
+    font-size: 1.7rem;
+}
+
+.contact-form-section .form-wrapper h1, 
+.contact-form-section .contact-details h1{
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-weight: 800 !important;
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form-section .form-wrapper h1{
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.contact-form-section .contact-details p{
+    max-width: 400px;
+}
+
+.contact-form-section .contact-details{
+    padding: 10rem 0 5rem;
+    position: relative;
+}
+.contact-form-section .contact-details h6{
+    font-size: .9rem;
+    margin-bottom: .5rem;
+}
+
+.contact-form-section .contact-details p,
+.contact-form-section .contact-details p a{
+    font-size: 1.2rem;
+    color: #fff;
+    z-index: 5;
+}
+
+.contact-form-section .contact-details p .tel{
+    color: #fff;
+    font-size: 1.15;
+    font-size: 500;
+}
+
+.contact-form-section .contact-details .icon{
+    height: 50px;
+    width: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.contact-form-section .contact-details .icon i{
+    font-size: 1.6rem;
+    color: var(--secondary);
+}
+
+
+
+@media (max-width: 991px) {
+    .get-answer .img{
+        height: fit-content;
+    } 
+    .contact-form-section .form-wrapper{
+        min-width: 20rem;
+        padding-top: 3rem;
+    }
+    .contact-form-section .submit-btn{
+        justify-content: center !important;
+        gap: 1rem;
+    }
+    .contact-form-section .form-wrapper .forms{
+        padding: 1rem;
+    }
+}
+@media (max-width: 767px) {
+    .get-answer{
+        padding: 0 1rem 0 1rem;
+    }
+    .get-answer h1{
+        margin-top: 2rem !important;
+        text-align: center;
+    }
+    .contact-form-section{
+        background: linear-gradient(rgb(11, 21, 41, 0.6), rgb(11, 21, 41, 0.5)), url(../img/plane4.jpg);
+    }
+    .contact-form-section .form-wrapper{
+       transform: translateY(-0%);
+    }
+    .contact-form-section .contact-details{
+        padding-top: 3rem;
+    }
+    
+}
+@media (max-width: 640px) {
+    .contact-form-section .contact-details{
+        text-align: center;
+    }
+    .contact-form-section .contact-details .d-flex{
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .contact-form-section .contact-details .icon{
+        margin-right: .5rem;
+    }
+    .contact-form-section .contact-details .icon{
+        height: 40px;
+        width: 40px;
+        min-width:auto;
+    }
+    
+    .contact-form-section .contact-details .icon i{
+        font-size: 1.2rem;
+        color: var(--secondary);
+    }
+    .contact-form-section .contact-details p{
+        padding-top: 1rem;
+    }
+    .contact-form-section .form-wrapper{
+        min-width: 20rem;
+        padding-top: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .contact-form-section{
+        padding: 0 1rem;
+        margin-bottom: 8rem;
+    }
+    .contact-form-section .submit-btn{
+        justify-content: center !important;
+        padding: 1rem 2rem .5rem;
+    }
+    .contact-form-section .submit-btn button{
+        margin-left: 0;
+    }
+}
+
