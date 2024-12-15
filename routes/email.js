@@ -20,7 +20,7 @@ router.post('/send-email', (req, res) => {
                          Number of Adults: ${numAdults}\n
                          Number of Children: ${numChildren}\n`;
 
-    sendEmail(subject, textContent, 'onyeweketerence@gmail.com')
+    sendEmail(subject, textContent, 'expresstravelsandtour0@gmail.com')
         .then((info) => {
             res.status(200).json({ success: true, message: info });
         })
@@ -39,7 +39,7 @@ router.post('/contact-us', (req, res) => {
                          Email: ${email}\n
                          Message: ${message}\n`;
 
-    sendEmail(subject, textContent, 'onyeweketerence@gmail.com')
+    sendEmail(subject, textContent, 'expresstravelsandtour0@gmail.com')
         .then((info) => {
             res.status(200).json({ success: true, message: info });
         })
