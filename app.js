@@ -25,7 +25,7 @@ app.use('/', pageRouter)
 app.use('/', emailRouter)
 
 
-app.get('test', (req, res) => {
+app.get('/test', (req, res) => {
     res.send('chicking')
 })
 
