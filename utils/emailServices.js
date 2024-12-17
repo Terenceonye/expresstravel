@@ -5,10 +5,22 @@ require('dotenv').config();  // For loading environment variables
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,   // SMTP server host (e.g., smtp.yourserver.com)
     port: process.env.SMTP_PORT,   // SMTP server port (e.g., 587 for TLS)
-    secure: process.env.SMTP_SECURE === 'true', // Whether to use SSL or TLS (true/false)
+    secure: process.env.SMTP_SECURE === 'false', // Whether to use SSL or TLS (true/false)
     auth: {
         user: process.env.SMTP_USER,  // SMTP username
         pass: process.env.SMTP_PASS   // SMTP password
+    },
+
+    debug: true, // Enable debugging output
+    logger: true // Log the entire process
+});
+
+// Verify connection
+transporter.verify((error, success) => {
+    if (error) {
+        console.error('SMTP Transport Error:', error);
+    } else {
+        console.log('SMTP Server is ready to send emails');
     }
 });
 

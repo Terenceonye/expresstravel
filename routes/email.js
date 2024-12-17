@@ -2,6 +2,8 @@ const express = require('express');
 const { sendEmail } = require('../utils/emailServices'); // Import the sendEmail function
 const router = express.Router();
 
+router.use(express.json()); // Parse JSON request body
+
 
 router.post('/send-email', (req, res) => {
     const { firstName, lastName, email, phone, flyingFrom, flyingTo, departureDate, returnDate, flightClass, numAdults, numChildren } = req.body;
@@ -20,7 +22,7 @@ router.post('/send-email', (req, res) => {
                          Number of Adults: ${numAdults}\n
                          Number of Children: ${numChildren}\n`;
 
-    sendEmail(subject, textContent, 'expresstravelsandtour0@gmail.com')
+    sendEmail(subject, textContent, 'onyeweketerence@gmail.com')
         .then((info) => {
             res.status(200).json({ success: true, message: info });
         })
@@ -39,7 +41,7 @@ router.post('/contact-us', (req, res) => {
                          Email: ${email}\n
                          Message: ${message}\n`;
 
-    sendEmail(subject, textContent, 'expresstravelsandtour0@gmail.com')
+    sendEmail(subject, textContent, 'onyeweketerence@gmail.com')
         .then((info) => {
             res.status(200).json({ success: true, message: info });
         })

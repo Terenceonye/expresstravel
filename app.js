@@ -24,6 +24,11 @@ app.use('/', pageRouter)
 // Handle the form submission for flight booking and Contact us
 app.use('/', emailRouter)
 
+
+app.get('test', (req, res) => {
+    res.send('chicking')
+})
+
 const port = process.env.PORT || 3000
 app.listen(port, ()=> {
     console.log(`Server running on port ${port}`)
