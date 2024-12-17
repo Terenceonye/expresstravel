@@ -38,7 +38,7 @@ router.post('/send-email', (req, res) => {
                       Best regards,\nFlight Support Team`;
 
     // Admin and user email addresses
-    const adminEmail = 'onyeweketerence@gmail.com'; // Replace with your admin email
+    const adminEmail = 'expresstravelsandtour0@gmail.com'; // Replace with your admin email
     const userEmail = email;
 
     // Send both emails
@@ -75,7 +75,7 @@ router.post('/contact-us', (req, res) => {
                       Best regards,\nSupport Team`;
 
     // Admin and user email addresses
-    const adminEmail = 'onyeweketerence@gmail.com'; // Replace with your admin email
+    const adminEmail = 'expresstravelsandtour0@gmail.com'; // Replace with your admin email
     const userEmail = email;
 
     // Send both emails
