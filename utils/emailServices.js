@@ -1,47 +1,38 @@
 const nodemailer = require('nodemailer');
-require('dotenv').config();  // For loading environment variables
+require('dotenv').config(); // For environment variables
 
 // Configure Nodemailer transport to use SMTP server
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,   // SMTP server host (e.g., smtp.yourserver.com)
-    port: process.env.SMTP_PORT,   // SMTP server port (e.g., 587 for TLS)
-    secure: process.env.SMTP_SECURE === 'false', // Whether to use SSL or TLS (true/false)
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: process.env.SMTP_SECURE === 'true',
     auth: {
-        user: process.env.SMTP_USER,  // SMTP username
-        pass: process.env.SMTP_PASS   // SMTP password
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
     },
-
-    debug: true, // Enable debugging output
-    logger: true // Log the entire process
+    debug: true,  // Enable debugging output
+    logger: true  // Log the entire process
 });
 
-// Verify connection
-transporter.verify((error, success) => {
-    if (error) {
-        console.error('SMTP Transport Error:', error);
-    } else {
-        console.log('SMTP Server is ready to send emails');
-    }
-});
-
-// Function to send email
+// Function to send an email
 const sendEmail = (subject, textContent, recipientEmail) => {
     const mailOptions = {
-        from: process.env.SMTP_USER,   // Use the SMTP user for your email
-        to: recipientEmail,            // Dynamic recipient email
-        subject: subject,              // Dynamic subject
-        text: textContent              // Dynamic text content
+        from: `Express Travel And Tour <${process.env.SMTP_USER}>`,  // Sender's email (must match SMTP user)
+        to: recipientEmail,           // Recipient's email
+        subject: subject,             // Email subject
+        text: textContent             // Email body
     };
 
-    return new Promise((resolve, reject) => {
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                reject('Error sending email: ' + error);
-            } else {
-                resolve('Email sent: ' + info.response);
-            }
-        });
-    });
+    return transporter.sendMail(mailOptions); // Return a promise
 };
 
-module.exports = { sendEmail };
+// Function to send two emails
+const sendAdminAndUserEmails = (subjectAdmin, textAdmin, adminEmail, subjectUser, textUser, userEmail) => {
+    return Promise.all([
+        sendEmail(subjectAdmin, textAdmin, adminEmail), // Email to admin
+        sendEmail(subjectUser, textUser, userEmail)     // Email to user
+    ]);
+};
+
+// Export both functions
+module.exports = { sendEmail, sendAdminAndUserEmails };

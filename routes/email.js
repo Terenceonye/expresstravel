@@ -4,12 +4,13 @@ const router = express.Router();
 
 router.use(express.json()); // Parse JSON request body
 
-
+// Route for flight booking email
 router.post('/send-email', (req, res) => {
     const { firstName, lastName, email, phone, flyingFrom, flyingTo, departureDate, returnDate, flightClass, numAdults, numChildren } = req.body;
 
-    const subject = 'New Flight Booking Request';
-    const textContent = `You have received a new flight booking request:\n\n
+    // Admin email content
+    const adminSubject = 'New Flight Booking Request';
+    const adminText = `You have received a new flight booking request:\n\n
                          First Name: ${firstName}\n
                          Last Name: ${lastName}\n
                          Email: ${email}\n
@@ -22,33 +23,73 @@ router.post('/send-email', (req, res) => {
                          Number of Adults: ${numAdults}\n
                          Number of Children: ${numChildren}\n`;
 
-    sendEmail(subject, textContent, 'onyeweketerence@gmail.com')
-        .then((info) => {
-            res.status(200).json({ success: true, message: info });
+    // User confirmation email
+    const userSubject = 'Flight Booking Confirmation';
+    const userText = `Dear ${firstName} ${lastName},\n\n
+                      Thank you for your flight booking request. Here are your details:\n
+                      Flying From: ${flyingFrom}\n
+                      Flying To: ${flyingTo}\n
+                      Departure Date: ${departureDate}\n
+                      Return Date: ${returnDate}\n
+                      Class: ${flightClass}\n
+                      Number of Adults: ${numAdults}\n
+                      Number of Children: ${numChildren}\n\n
+                      We will contact you shortly to confirm your booking.\n\n
+                      Best regards,\nFlight Support Team`;
+
+    // Admin and user email addresses
+    const adminEmail = 'onyeweketerence@gmail.com'; // Replace with your admin email
+    const userEmail = email;
+
+    // Send both emails
+    Promise.all([
+        sendEmail(adminSubject, adminText, adminEmail), // Email to admin
+        sendEmail(userSubject, userText, userEmail)     // Email to user
+    ])
+        .then(() => {
+            res.status(200).json({ success: true, message: 'Emails sent successfully!' });
         })
         .catch((error) => {
-            res.status(500).json({ success: false, message: error });
+            console.error('Error sending emails:', error);
+            res.status(500).json({ success: false, message: 'Failed to send emails.' });
         });
 });
 
-// Example for Contact Us page email
+// Route for contact-us form email
 router.post('/contact-us', (req, res) => {
     const { name, email, message } = req.body;
 
-    const subject = 'New Contact Us Message';
-    const textContent = `You have received a new message from the Contact Us form:\n\n
+    // Admin email content
+    const adminSubject = 'New Contact Us Message';
+    const adminText = `You have received a new message from the Contact Us form:\n\n
                          Name: ${name}\n
                          Email: ${email}\n
                          Message: ${message}\n`;
 
-    sendEmail(subject, textContent, 'onyeweketerence@gmail.com')
-        .then((info) => {
-            res.status(200).json({ success: true, message: info });
+    // User confirmation email
+    const userSubject = 'We Have Received Your Message';
+    const userText = `Dear ${name},\n
+                      Thank you for contacting us. We have received your message:\n
+                      "${message}"\n
+                      Our team will get back to you shortly.\n
+                      Best regards,\nSupport Team`;
+
+    // Admin and user email addresses
+    const adminEmail = 'onyeweketerence@gmail.com'; // Replace with your admin email
+    const userEmail = email;
+
+    // Send both emails
+    Promise.all([
+        sendEmail(adminSubject, adminText, adminEmail), // Email to admin
+        sendEmail(userSubject, userText, userEmail)     // Email to user
+    ])
+        .then(() => {
+            res.status(200).json({ success: true, message: 'Emails sent successfully!' });
         })
         .catch((error) => {
-            res.status(500).json({ success: false, message: error });
+            console.error('Error sending emails:', error);
+            res.status(500).json({ success: false, message: 'Failed to send emails.' });
         });
 });
 
-
-module.exports = router
+module.exports = router;
