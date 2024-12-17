@@ -26,7 +26,7 @@ app.use('/', emailRouter)
 
 
 app.get('/test', (req, res) => {
-    res.send('chicking')
+    res.send('checking')
 })
 
 const port = process.env.PORT || 3000
