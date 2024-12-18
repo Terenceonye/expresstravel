@@ -83,6 +83,30 @@ section{
     color: #fff;
 }
 
+ /* Targeting the Google Translate widget's select dropdown */
+ .goog-te-combo {
+    max-width: 150px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Changing the hover state of the dropdown */
+.goog-te-combo:hover {
+    background-color: #e6e6e6;
+    border-color: #0088cc;
+}
+
+/* Focus state for better UX */
+.goog-te-combo:focus {
+    border-color: #0088cc;
+    box-shadow: 0 0 5px rgba(0, 136, 204, 0.6);
+    outline: none;
+}
 
 
 
