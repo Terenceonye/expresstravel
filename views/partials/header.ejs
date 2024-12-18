@@ -7,7 +7,7 @@
                     <img src="assets/img/brand-logo.png" alt="" width="150px">
                 </a>
             </div>
-            <div id="google_translate_element"></div>
+            
             <ul class="navba-links">
                 <li><a href="/" class="active" style="color: #ffff;">Home <img src="assets/img/star-icon.png" alt="" width="20px"></a> </li>
                 <li><a href="about">About </a></li>
@@ -15,17 +15,10 @@
                 <!-- <li><a href="gallery">Gallery <img src="assets/img/star-icon.png" alt="" width="20px"></a></li> -->
                 <li><a href="contactus">Contact Us</a></li>
             </ul>
-            <div id="google_translate_element"></div>
+            
 
-            <script src="script.js"></script>
-                <script type="text/javascript">
-                    function googleTranslateElementInit() {
-                        new google.translate.TranslateElement(
-                            {pageLanguage: 'en'},
-                            'google_translate_element'
-                        );
-                    } 
-            </script>
+            <!-- <div id="google_translate_element" style="display: none !important;"></div> -->
+            
             <div class="navba-btn">
                 <div class="button-container">
                     <a href="about" class="expand-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -59,7 +52,7 @@
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
-        </div> 
+        </div>
         <div class="sm-navbalinks-wrapper" style="z-index:3;width:300px;" id="mySidebar">
             <div class="close-navba">
                 <a href="#" onclick="navba_close()" class="" title="close menu">
@@ -74,12 +67,19 @@
                     <!-- <li><a href="gallery">Gallery</a></li> -->
                     <li><a href="contactus" onclick="navba_close()">Contact Us</a></li>
                 </ul>
+
+                <div id="google_translate_element" class="d-flex align-item-center justify-content-center" ></div>
             </div>
             
+
+            
+
+
         </div>
          <!-- Overlay effect when opening sidebar on small screens -->
         <div class="navba-overlay" onclick="navba_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-    </nav>         
+    </nav>   
+        
     </header>
 
 
@@ -209,8 +209,134 @@
   .contact .my-email-form button[type=submit]:hover {
     /* background: color-mix(in srgb, var(--accent-color), transparent 25%); */
   }
+
+
+
+
+  /* SWEET ALERT */
+
+    /* General Styling */
+    /* body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f3f4f6;
+    } */
+
+    .success-container {
+      display: none;
+      position: absolute;
+      top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      width: 300px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #e9f7ef;
+      color: #155724;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: slideIn 0.5s ease, fadeOut 3s 2s forwards;
+
+      z-index: 2500;
+    }
+
+    .success-container h2 {
+      margin: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .success-container p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* Animated Tick */
+    .tick-container {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: #28a745;
+      animation: pop 0.4s ease-out;
+    }
+
+    .tick {
+      position: absolute;
+      width: 25px;
+      height: 10px;
+      border-left: 4px solid white;
+      border-bottom: 4px solid white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      animation: tickDraw 0.4s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+
+    /* Animations */
+    @keyframes pop {
+      0% {
+        transform: scale(0);
+      }
+      80% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes tickDraw {
+      0% {
+        opacity: 0;
+        width: 0;
+      }
+      100% {
+        opacity: 1;
+        width: 25px;
+      }
+    }
+
+    /* @keyframes slideIn {
+      0% {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    } */
+
+    /* @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+    } */
+  
   
     </style>
+
+
+<div class="success-container" id="successMessage">
+    <div class="tick-container">
+      <div class="tick"></div>
+    </div>
+    <h2>Success!</h2>
+    <p>Your form has been submitted successfully.</p>
+  </div>
+
+
+
+
+
    
 
    <!-- MODAL FOR CONTACT US SECTION -->
@@ -223,7 +349,7 @@
             <div class="modal-body">
 
                 <div id="modalAlertContainer">
-                    <!-- Alerts will be dynamically injected here -->cdd
+                    <!-- Alerts will be dynamically injected here -->
                 </div>
 
                 <!-- Contact Section -->
@@ -353,11 +479,17 @@
         .then(response => response.json()) // Parse JSON response
         .then(data => {
             if (data.success) {
-                showAlert('Email sent successfully!', 'success');
+                // Simulate a success message display after 1 second (e.g., after form submission)
+                setTimeout(() => {
+                showSuccessMessage();
+                }, 1000);
+
                 form.reset(); // Reset the form
-                const modal = document.getElementById('staticBackdrop');
-                const bootstrapModal = new bootstrap.Modal(modal);
-                bootstrapModal.hide(); // Hide the modal after form submission
+
+                // hidding the modal and its backdrop
+                const modalElement = document.getElementById('staticBackdrop');
+                const modalInstance = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+                modalInstance.hide();
             } else {
                 showAlert('Error: ' + data.message, 'danger');
             }
@@ -390,4 +522,33 @@
 
 </script>
 
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="script.js"></script>
+                
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        } 
+    </script>
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <!-- SWEET ALERT JS -->
+
+    <script>
+        // Show success message function
+        function showSuccessMessage() {
+          const successMessage = document.getElementById('successMessage');
+          successMessage.style.display = 'block';
+    
+          // Automatically hide the message after 4 seconds
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 4000);
+        }
+    
+        
+      </script>
